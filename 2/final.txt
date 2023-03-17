@@ -1,0 +1,271 @@
+امین ثابت اقدم
+
+4016655019
+
+
+برای خوانا تر بودن لطفا به لینک زیر مراجعه کنید:
+
+https://am1nsab83.github.io/2
+
+---
+
+1.
+
+ فایل سرآیند به منظور استفاده از دستورات مورد نظر در آن کتابخانه خاص مورد استفاده قرار میگیرد. یک برنامه سی بدون فایل سرآیند به هیچ عنوان قابل نوشتن نیست
+
+---
+
+2.
+
+سرآیند: سرآیند با دستور include به شکل زیر:
+
+#include <"library">
+
+وارد میشود.
+
+بدنه: بدنه‌ی یک برنامه‌ی سی اول به صورت:
+
+init X()
+
+که init مخفف initial به معنی ساخت است. و با این دستور بدنه درست میشود
+
+حتما باید در نظر داشته باشیم که آخر هر برنامه، هر گاه کار برنامه تمام شد دستور return 0; را گذاشته، تا برنامه به طور کلی بسته شود
+
+---
+3.
+خطا:
+```
+3.c:3:1: warning: data definition has no type or storage class
+    3 | main();
+      | ^~~~
+3.c:3:1: warning: type defaults to ‘int’ in declaration of ‘main’ [-Wimplicit-int]
+3.c:4:1: error: expected identifier or ‘(’ before ‘{’ token
+    4 | {
+      | ^
+```
+
+شکل درست
+:
+```
+#include <stdio.h>
+int main()
+{
+    printf ("keep looking!");
+    printf ("you\'ll find it");
+    return 0;
+}
+```
+
+---
+
+4.
+
+
+```
+#include <stdio.h>
+
+int main()
+{
+    printf("The answer to the question of\nLife, the Universe, and Everything is 42.");
+    return 0;
+}
+```
+out:
+```
+The answer to the question of
+Life, the Universe, and Everything is 42.
+```
+---
+5.
+
+```
+#include <stdio.h>
+int main()
+{
+    float x,y;
+    printf("please insert X\n:");
+    scanf("%f",&x);
+    y=1/(x*x+x+3);
+    printf("%f",y);
+    return 0;
+}
+```
+out (0.2=x):
+
+```
+please insert X
+:0.2
+0.308642
+```
+---
+6.
+
+```
+#include <stdio.h>
+int main()
+{
+    float number;
+    number = (1/3)*3;
+    printf("(1/3)*3 is equal to %5.2f",number);
+    return 0;
+}
+```
+out:
+```
+(1/3)*3 is equal to  0.00⏎ 
+```
+---
+7.
+
+```
+#include <stdio.h>
+int main()
+{
+    float kg,g;
+    printf("please insert the weight in Kilo Grams\n:");
+    scanf("%f",&kg);
+    g = kg * 1000;
+    printf("weight in Grams is:%f",g);
+    return 0;
+}
+```
+out (kg=20.59):
+```
+please insert the weight in Kilo Grams
+:20.59
+weight in Grams is:20590.000000⏎ 
+```
+---
+8.
+
+```
+#include <stdio.h>
+int main()
+{
+    const int m_m=750000;
+    int totp_m,totf_m,totp_y,totf_y,m_m2,dif;
+    printf("750000 for each\n");
+    totp_m = m_m*2;
+    printf("totaly %d rial for both in a month\n",totp_m);
+    totp_y = totp_m*12;
+    printf("which makes %d rial in year fo company\n",totp_y);
+    m_m2 = (m_m*13.5/100)+m_m;
+    printf("13.5%% more than their current salary will be %d rials\n",m_m2);
+    totf_m=m_m2*2;
+    printf("totaly %d rial for both in a month after change\n",totf_m);
+    totf_y=totf_m*12;
+    printf("which makes %d rial in year fo company afetr change\n",totp_y);
+    dif = totf_y-totp_y;
+    printf("\nnow the total cost for this change for the company will be %d rials per year.",dif);
+    return 0;
+}
+```
+out:
+```
+750000 for each
+totaly 1500000 rial for both in a month
+which makes 18000000 rial in year fo company
+13.5% more than their current salary will be 851250 rials
+totaly 1702500 rial for both in a month after change
+which makes 18000000 rial in year fo company afetr change
+
+now the total cost for this change for the company will be 2430000 rials per year.⏎ 
+```
+---
+9.
+
+```
+#include <stdio.h>
+int main()
+{
+    float a4p,pp,t,tot,a4np,pnp,tf,totf;
+    printf("please insert A4 price, then pen price, then Inflation\n");
+    scanf("%f\n%f\n%f",&a4p,&pp,&t);
+    tot=a4p*50+pp*150;
+    printf("total cost for A4 papers and pens in this company for this year is %f\n",tot);
+    printf("total");
+    tf=t/100;
+    a4np=a4p+(a4p*tf);
+    pnp=pp+(pp*tf);
+    totf=pnp*150+a4np*50;
+    printf("\n and total cost for A4 papers and pens for the next year is %f",totf);
+    return 0;
+}
+```
+out (a4p=20 pp=15 t=6.3):
+```
+please insert A4 price, then pen price, then Inflation
+20
+15
+6.3
+total cost for A4 papers and pens in this company for this year is 3250.000000
+total
+ and total cost for A4 papers and pens for the next year is 3454.750000⏎ 
+ ```
+ ---
+ 10.
+ 
+  ```
+ #include <stdio.h>
+int main()
+{
+    const float div=0.5;
+    float x,y,s;
+    printf("please insert the base, then height\n");
+    scanf("%f\n%f",&x,&y);
+    s = x*y*div;
+    printf("the area of the triangel is equel to:%f",s);
+    return 0;
+}
+```
+out (x=20,y=15):
+```
+please insert the base, then height
+20
+15
+the area of the triangel is equel to:150.000000⏎
+```
+---
+11.
+
+```
+#include <stdio.h>
+int main()
+{
+    float e,s;
+    printf("please insert the water as L\n:");
+    scanf("%f",&e);
+    s=e*950/3;
+    printf("there are %f * 10^23 molcoles in this amount of water",s);
+    return 0;
+}
+```
+out (e=20):
+```
+please insert the water as L
+:20
+there are 6333.333496 * 10^23 molcoles in this amount of water⏎ 
+```
+---
+12.
+```
+#include <stdio.h>
+int main()
+{
+    const float sa=3.156;
+    int a;
+    float f;
+    printf("please insert your age (only in years)\n:");
+    scanf("%d",&a);
+    f=a*sa;
+    printf("your age in seconds is equel to:%f * 10^7",f);
+    return 0;
+}
+```
+out (a=18):
+```
+please insert your age (only in years)
+:18
+your age in seconds is equel to:56.807999 * 10^7⏎ 
+```
+
