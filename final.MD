@@ -17,4 +17,34 @@
 
 وارد میشود.
 
-بدنه: بدنه‌ی یک برنامه‌ی سی 
+بدنه: بدنه‌ی یک برنامه‌ی سی اول به صورت:
+
+init X()
+
+که init مخفف initial به معنی ساخت است. و با این دستور بدنه درست میشود
+
+حتما باید در نظر داشته باشیم که آخر هر برنامه، هر گاه کار برنامه تمام شد دستور return 0; را گذاشته، تا برنامه به طور کلی بسته شود
+
+--------------
+3.
+
+3.c:3:1: warning: data definition has no type or storage class
+    3 | main();
+      | ^~~~
+3.c:3:1: warning: type defaults to ‘int’ in declaration of ‘main’ [-Wimplicit-int]
+3.c:4:1: error: expected identifier or ‘(’ before ‘{’ token
+    4 | {
+      | ^
+
+
+شکل درست
+:
+
+// amin sabet aghdam
+#include <stdio.h>
+int main()
+{
+    printf ("keep looking!");
+    printf ("you\'ll find it");
+    return 0;
+}
