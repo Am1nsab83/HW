@@ -2,7 +2,6 @@
 #include <stdio.h>
 double a;
 void operate();
-void operate();
 void power();
 void factor();
 void times();
