@@ -3,6 +3,7 @@
 double a;
 void squreroot();
 void operate();
+void avg();
 void power();
 void factor();
 void times();
@@ -19,7 +20,7 @@ int main()
 void operate()
 {
     char op;
-    printf("\nplease enter your operator (-,+,/,*,^,!,r)\"type \'h\' for help\"\n");
+    printf("\nplease enter your operator (-,+,/,*,^,!,r,a)\"type \'h\' for help\"\n");
     scanf(" %c",&op);
     switch (op)
     {
@@ -43,6 +44,9 @@ void operate()
             break;
         case 'r':
             squreroot();
+            break;
+        case 'a':
+            avg();
             break;
         case 'c':
             a=0;
@@ -131,6 +135,7 @@ void factor()
 }
 void squreroot()
 {
+    //Babylonian method
     double r = a/2;
     int i;
     for (i = 0; i < 10; i++) {
@@ -138,4 +143,19 @@ void squreroot()
     }
     printf("%lf",r);
     operate();
+}
+void avg()
+{
+    int n,i;
+    float a[n],s=0;
+    printf("how many numbers you got?\n:");
+    scanf("%d",&n);
+    printf("now insert your numbers one by one:\n");
+    for(i=0;i<n;i++)
+        scanf("%f",&a[i]);
+    for(i=0;i<n;i++)
+        s=s+a[i];
+    s=s/n;
+    printf("avg of your numbers is %f\n",s);
+    main();
 }
