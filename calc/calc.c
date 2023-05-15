@@ -1,8 +1,8 @@
-//C-calc v1.0 Chamran University 
+//C-calc v1.1 Chamran University 
 #include <stdio.h>
 double a;
 void operate();
-void ask();
+void operate();
 void power();
 void factor();
 void times();
@@ -19,7 +19,7 @@ int main()
 void operate()
 {
     char op;
-    printf("please enter your operator (-,+,/,*,^,!)\n");
+    printf("\nplease enter your operator (-,+,/,*,^,!)\"type \'h\' for help\"\n");
     scanf(" %c",&op);
     switch (op)
     {
@@ -41,6 +41,17 @@ void operate()
         case '!':
             factor();
             break;
+        case 'c':
+            a=0;
+            main();
+            break;
+        case 'e':
+            return;
+            break;
+        case 'h':
+            printf("help page:\n1:\'e\':exit\n2:\'c\':for reseting the number\n3:\'h\':this page\n");
+            operate();
+            break;
     }
 }
 void plus()
@@ -50,7 +61,7 @@ void plus()
     scanf("%lf",&b);
     a=a+b;
     printf("%lf",a);
-    ask();
+    operate();
 }
 void minus()
 {
@@ -59,7 +70,7 @@ void minus()
     scanf("%lf",&b);
     a=a-b;
     printf("%lf",a);
-    ask();
+    operate();
 }
 void times()
 {
@@ -68,7 +79,7 @@ void times()
     scanf("%lf",&b);
     a=a*b;
     printf("%lf",a);
-    ask();
+    operate();
 }
 void devide()
 {
@@ -77,7 +88,7 @@ void devide()
     scanf("%lf",&b);
     a=a/b;
     printf("%lf",a);
-    ask();
+    operate();
 }
 void power()
 {
@@ -104,7 +115,7 @@ void power()
             a=a*statica;
         printf("%lf",a);
     }
-    ask();
+    operate();
 }
 void factor()
 {
@@ -113,15 +124,5 @@ void factor()
     for(i=1;i<=a;i++)
         s=s*i;
     printf("%lf",s);
-    ask();
-}
-void ask()
-{
-    char yn;
-    printf("\nstill wanna continue?(y,n):\n");
-    scanf(" %c",&yn);
-    if(yn=='y'||yn=='Y')
-        operate();
-    else
-        return;    
+    operate();
 }
