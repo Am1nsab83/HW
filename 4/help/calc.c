@@ -1,3 +1,4 @@
+//C-calc v1.0 Chamran University 
 #include <stdio.h>
 double a;
 void operate();
@@ -35,8 +36,10 @@ void operate()
             break;
         case '^':
             power();
+            break;
         case '!':
             factor();
+            break;
     }
 }
 void plus()
@@ -78,8 +81,8 @@ void power()
     scanf("%d",&b);
     if(b==0)
     {
-        a==1;
-        printf("%d",a);
+        a=1;
+        printf("%lf",a);
     }
     if(b<0)
     {
@@ -87,13 +90,13 @@ void power()
         for(i=1;i<b;i++)
             a=a*statica;
         a=1/a;
-        printf("%d",a);
+        printf("%lf",a);
     }
     if(b>0)
     {
         for(i=1;i<b;i++)
             a=a*statica;
-        printf("%d",a);
+        printf("%lf",a);
     }
     ask();
 }
