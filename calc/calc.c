@@ -56,7 +56,7 @@ void operate()
             return;
             break;
         case 'h':
-            printf("help page:\n1:\'e\':exit\n2:\'c\':for reseting the number\n3:\'h\':this page\n4:\'r\':its for squreroot\n");
+            printf("help page:\n1:\'e\':exit\n2:\'c\':for reseting the number\n3:\'h\':this page\n4:\'r\':its for squreroot\n5:\'a\':for average calculation.\n");
             operate();
             break;
     }
