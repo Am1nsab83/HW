@@ -1,6 +1,7 @@
-//C-calc v1.1 Chamran University 
+//C-calc v1.2 Chamran University 
 #include <stdio.h>
 double a;
+void squreroot();
 void operate();
 void power();
 void factor();
@@ -18,7 +19,7 @@ int main()
 void operate()
 {
     char op;
-    printf("\nplease enter your operator (-,+,/,*,^,!)\"type \'h\' for help\"\n");
+    printf("\nplease enter your operator (-,+,/,*,^,!,r)\"type \'h\' for help\"\n");
     scanf(" %c",&op);
     switch (op)
     {
@@ -40,6 +41,9 @@ void operate()
         case '!':
             factor();
             break;
+        case 'r':
+            squreroot();
+            break;
         case 'c':
             a=0;
             main();
@@ -48,7 +52,7 @@ void operate()
             return;
             break;
         case 'h':
-            printf("help page:\n1:\'e\':exit\n2:\'c\':for reseting the number\n3:\'h\':this page\n");
+            printf("help page:\n1:\'e\':exit\n2:\'c\':for reseting the number\n3:\'h\':this page\n4:\'r\':its for squreroot\n");
             operate();
             break;
     }
@@ -123,5 +127,15 @@ void factor()
     for(i=1;i<=a;i++)
         s=s*i;
     printf("%lf",s);
+    operate();
+}
+void squreroot()
+{
+    double r = a/2;
+    int i;
+    for (i = 0; i < 10; i++) {
+        r = (r + a / r) / 2;
+    }
+    printf("%lf",r);
     operate();
 }
