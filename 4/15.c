@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <math.h>
+double root(double);
 void calc(int,int,int);
 int main()
 {
@@ -23,9 +23,19 @@ void calc(int a, int b, int c)
     }
     if(delta>0)
     {   
-        delta = sqrt(delta);
+        delta = root(delta);
         ansa=(-1*b+delta)/2*a;
         ansb=(-1*b-delta)/2*a;
         printf("this equeation has two answers\n1:%f\n2:%f",ansa,ansb);
     }
+}
+double root(double delta)
+{
+    // Babylonian method
+    double r = delta/2;
+    int i;
+    for (i = 0; i < 10; i++) {
+        r = (r + delta / r) / 2;
+    }
+    return r;
 }
