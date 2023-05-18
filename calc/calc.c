@@ -1,5 +1,7 @@
 //C-calc v1.2 Chamran University 
 #include <stdio.h>
+//#include <string.h>
+//#include "./am1nsab83.h"
 double a;
 void squreroot();
 void operate();
@@ -59,6 +61,10 @@ void operate()
             printf("help page:\n1:\'e\':exit\n2:\'c\':for reseting the number\n3:\'h\':this page\n4:\'r\':its for squreroot\n5:\'a\':for average calculation.\n");
             operate();
             break;
+        //case 'm':
+            //char *pass;
+            //scanf("%s",pass);
+            //hidden_mwssage(pass);
     }
 }
 void plus()
