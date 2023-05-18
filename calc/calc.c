@@ -1,7 +1,7 @@
 //C-calc v1.2 Chamran University 
 #include <stdio.h>
 //#include <string.h>
-//#include "./am1nsab83.h"
+//#include ".\am1nsab83.h"
 double a;
 void squreroot();
 void operate();
