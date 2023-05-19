@@ -1,0 +1,551 @@
+امین ثابت اقدم
+
+401655019
+
+-----
+1.
+
+الگوی تابع باید قبل از int main اعلام شود هر چند بعد از آن هم اعلام شود  مشکلی نیست، همان عنوان تابع هست که میتوان از ذکر نام متغیر ها در لیست پارامتر ها صرف نظر کرد
+
+-------
+2.
+
+برای فراخوانی تابع، در تابع فراخوان، نام تابع به همراه آرگومان های تابع در پرانتز ذکر میشوند. آرگومان ها بع ترتیب به عنوان  تابع فراخوانی میشود، حال تابع فراخوانی شده اجازه دارد با مقادیر داده شده کار کند تابع اعمالی را سوی پارامتر ها انجام میدهد، حال بسته به نوع تابع با دستور return مقداری را به مکانی که فراخوانی شده بر میگرداند ( توجه داشته باشید که اگر تابع از نوع void بوده، مقداری را برنمیگرداند و این نوع تابع فقط و فقط وظیفه انجام کاری را دارد نه برگرداندن عدد )
+
+------------
+3.
+
+۱. آرگومان ها و پارامتر های مرتبط هم نوع باشند.
+
+۲. ترتیب آرگومان ها و پارامتر ها یکسان باشد.
+
+۳.تمام آرگومان ها، مقادیر اولیه  داشته باشند
+
+۴. تعداد آرگومان ها و پارامتر ها یکسان باشد.
+
+----
+
+4.
+
+
+جنبه تعریف تابع
+
+
+نوع و نام تابع به همراه پارامتر ها ذکر میشود سپس در {} دستورات تابع ذکر میشوند
+
+
+جنبه فراخوانی تابع: باید الگوی تابع قبل از main() ذکر شده باشد
+برای فراخوانی تابع کافی است نام تابع با ورودی ها در ارگومان ذکر شود
+
+
+---
+5.
+پنج دسته:
+
+int,double,float,char,void
+
+برای ارسال آرگومان ۲ روش وجود دارم
+
+۱. تعریف آرگومان در بین آرگومان های ذیگر قبل از بدنه مد ( تعرف به عنوان گلوبال)
+
+۲. وارد کردن آرگومان هنگام فراخوانی تابع ( در این روش باید حتما هنگام دیفاین تابع در پارامتر ها، نوع آرگومان ها را هم تعریف کنیم )
+
+این هم در نظر داشته باشیم که یک تابع فقط و فقط یک جواب را میتواند برگرداند.  و همینطور تابع ‌:void: مقداری را برنمیگرداند
+
+
+----
+
+6.
+
+آرگومان ها باید نوع داشته باشند، آرگومان جلوی نام تابع می‌آید و هنگام فراخوانی و پارامتر ها در جلوی عنوان تابع می‌آیند
+
+
+----
+
+
+10.
+
+```
+#include <stdio.h>
+#include <unistd.h>
+void count();
+int main()
+{
+    int n;
+    printf("please enter your number\n");
+    scanf("%d",&n);
+    printf("%d\n",n);
+    count(n);
+    return 0;
+}
+void count(int n)
+{
+    if(n!=1)
+    {
+        n--;
+        printf("%d\n",n);
+        sleep(1);
+        count(n);
+    }
+}
+```
+out (10):
+``` 
+please enter your number
+10
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+```
+----
+11.
+```
+#include <stdio.h>
+int fibo();
+int main()
+{
+    int a,b,n,fin;
+    printf("please enter the first two numbers:\n");
+    scanf("%d%d",&a,&b);
+    printf("please enter how many steps you wanna go forward:\n");
+    scanf("%d",&n);
+    fin=fibo(a,b,n);
+    printf("%d",fin);
+    return 0;
+}
+int fibo(int a, int b, int n)
+{
+    int i;
+    for(i=2;i<=n;i++)
+    {
+        if(i%2==0)
+        {
+            a=a+b;
+        }
+        if(i%2!=0)
+        {
+            b=a+b;
+        }
+    }
+    if(i%2==0)
+        return a;
+    if(i%2!=0)
+        return b;
+}
+```
+out(1,2,6):
+```
+please enter the first two numbers:
+1
+2
+please enter how many steps you wanna go forward:
+6
+13⏎         
+```
+----
+12.
+```
+#include <stdio.h>
+float inp,cm,m;
+void input();
+void foot();
+void inch();
+void out();
+int main()
+{
+    printf("welcome to the length converter!\nplease insert your value (foot & inch to m & cm):\n");
+    input();
+    return 0;
+}
+void input()
+{
+    scanf("%f",&inp);
+    printf("please choose your input:\n1.foot\n2.inch\n");
+    int ans;
+    scanf("%d",&ans);
+    if(ans == 1)
+    {
+        printf("you selected foot\n");
+        foot();
+    }
+    if(ans == 2)
+    {
+        printf("you selected inch\n");
+        inch();
+    }
+}
+void foot()
+{
+    m=0.3048*inp;
+    cm=m*100;
+    out();
+}
+void inch()
+{
+    m=inp/2*0.3048;
+    cm=m*100;
+    out();
+}
+void out()
+{
+    printf("converted to m=%f\nconverted to cm=%f",m,cm);
+}
+```
+out(inp=10),ans=1):
+```
+welcome to the length converter!
+please insert your value (foot & inch to m & cm):
+10
+please choose your input:
+1.foot
+2.inch
+1
+you selected foot
+converted to m=3.048000
+converted to cm=304.800018⏎   
+```
+out(inp=43,ans=2)
+```
+welcome to the length converter!
+please insert your value (foot & inch to m & cm):
+43
+please choose your input:
+1.foot
+2.inch
+2
+you selected inch
+converted to m=6.553200
+converted to cm=655.319946⏎  
+```
+---
+13.
+```
+#include <stdio.h>
+double avgf(float,float,float);
+int main()
+{
+    float a,b,c;
+    double avg;
+    printf("please enter your 3 numbers:\n");
+    scanf("%f%f%f",&a,&b,&c);
+    avg=avgf(a,b,c);
+    printf("the avrrage of the numbers youve entered is %lf",avg);
+    return 0;
+}
+double avgf(float a, float b, float c)
+{
+    double an;
+    an=(a+b+c)/3;
+    return an;
+}
+```
+out(a=12.3,b=14,c=19.98):
+```
+please enter your 3 numbers:
+12.3
+14
+18.98
+the avrrage of the numbers youve entered is 15.093333⏎   
+```
+---
+14.
+```
+#include <stdio.h>
+float faren(float);
+int main()
+{
+    float c,far;
+    printf("please enter the room temperature\n");
+    scanf("%f",&c);
+    far=faren(c);
+    printf("room temperature in farenheit is %f",far);
+    return 0;
+}
+float faren(float c)
+{
+    float ret;
+    ret=c*9/5;
+    return ret;
+}
+```
+out(c=53):
+```
+please enter the room temperature
+43
+room temperature in farenheit is 77.400002⏎     
+```
+----
+15.
+```
+#include <stdio.h>
+double root(double);
+void calc(int,int,int);
+int main()
+{
+    int a,b,c;
+    printf("insert a,b,c of this equation: ax^2+bx+c one be one (a,b,c)\n:");
+    scanf("%d%d%d",&a,&b,&c);
+    calc(a,b,c);
+    return 0;
+}
+void calc(int a, int b, int c)
+{
+    double delta;
+    float ansa,ansb;
+    delta=b*b-4*a*c;
+    if(delta<0)
+        printf("this equation doesnt have any answers");
+    if(delta == 0)
+    {
+        ansa=-b/2*a;
+        printf("answer of this equation equals to %f",ansa);
+    }
+    if(delta>0)
+    {   
+        delta = root(delta);
+        ansa=(-1*b+delta)/2*a;
+        ansb=(-1*b-delta)/2*a;
+        printf("this equeation has two answers\n1:%f\n2:%f",ansa,ansb);
+    }
+}
+double root(double delta)
+{
+    // Babylonian method
+    double r = delta/2;
+    int i;
+    for (i = 0; i < 10; i++) {
+        r = (r + delta / r) / 2;
+    }
+    return r;
+}
+```
+out(a=1,b=-3,c=2):
+```
+insert a,b,c of this equation: ax^2+bx+c one be one (a,b,c)
+:1
+-3
+2
+this equeation has two answers
+1:2.000000
+2:1.000000⏎        
+```
+out(a=1,b=-8,c=16):
+```
+insert a,b,c of this equation: ax^2+bx+c one be one (a,b,c)
+:1
+-8
+16
+answer of this equation equals to 4.000000⏎   
+```
+out(a=1,b=1,c=1):
+```
+insert a,b,c of this equation: ax^2+bx+c one be one (a,b,c)
+:1
+1
+1
+this equation doesnt have any answers⏎  
+```
+---
+16.
+```
+#include <stdio.h>
+float a,b,c;
+void plus();
+void minus();
+void devide();
+void times();
+int main()
+{
+    char op;
+    printf("C calculator, please insert two float numbers\n");
+    scanf("%f%f",&a,&b);
+    printf("please choose your operation (+,-,/,*)\n");
+    scanf(" %c",&op);
+    switch (op)
+    {
+    case '+':
+        plus();
+        break;
+    case '-':
+        minus();
+        break;
+    case '/':
+        devide();
+        break;
+    case '*':
+        times();
+        break;
+    }
+    return 0;
+}
+void times()
+{
+    c=a*b;
+    printf("%f",c);
+}
+void minus()
+{
+    c=a-b;
+    printf("%f",c);
+}
+void devide()
+{
+    c=a/b;
+    printf("%f",c);
+}
+void plus()
+{
+    c=a+b;
+    printf("%f",c);
+}
+```
+out(a=12.3,b=13.78,op=/):
+```
+C calculator, please insert two float numbers
+12.3
+13.78
+please choose your operation (+,-,/,*)
+/
+0.892598⏎                               
+```
+----
+17.
+```
+#include <stdio.h>
+void pr(char,int,int);
+int main()
+{
+    char ch;
+    int i,j;
+    printf("enter character first, then first column then next one\n:");
+    scanf(" %c%d%d",&ch,&i,&j);
+    pr(ch,i,j);
+    return 0;
+}
+void pr(char ch, int i, int j)
+{
+    int p=0;
+    while(p<i)
+    {
+        printf(" ");
+        p++;
+    }
+    p=i;
+    while(p<=j)
+    {
+        printf("%c",ch);
+        p++;
+    }
+}
+```
+out(ch=@,i=2,j=13):
+```
+enter character first, then first column then next one
+:@
+2
+13
+  @@@@@@@@@@@@⏎     
+```
+---
+18.
+```
+#include <stdio.h>
+int pr();
+char ch;
+int main()
+{
+    int i,j;
+    printf("enter character first, then amount of chars you want in the line, and then ammount of lines\n:");
+    scanf(" %c%d%d",&ch,&i,&j);
+    pr(i,j);
+    return 0;
+}
+int pr(int i, int j)
+{
+    int p;
+    for(p=0;p<i;p++)
+        printf(" %c",ch);
+    j--;
+    if(j!=0)
+    {
+        printf("\n");
+        pr(i,j);
+    }
+    else
+        return 0;
+}
+```
+out(ch=#,i=5,j=9):
+```
+enter character first, then amount of chars you want in the line, and then ammount of lines
+:#
+5
+9
+ # # # # #
+ # # # # #
+ # # # # #
+ # # # # #
+ # # # # #
+ # # # # #
+ # # # # #
+ # # # # #
+ # # # # #⏎  
+ ```
+ ---
+ 19.
+ ```
+ #include <stdio.h>
+double power(double,int);
+int main()
+{
+    int b;
+    double a,fin;
+    printf("a^b(a,b)\n");
+    scanf("%lf%d",&a,&b);
+    fin=power(a,b);
+    printf("%lf",fin);
+    return 0;
+}
+double power(double a, int b)
+{
+    int i;
+    const double statica=a;
+    if(b<0)
+    {
+        b=-1*b;
+        for(i=1;i<b;i++)
+            a=a*statica;
+        a=1/a;
+        return a;
+    }
+    if(b>0)
+    {
+        for(i=1;i<b;i++)
+            a=a*statica;
+        return a;
+    }
+    else
+        return 1;
+}
+```
+out(a=4,b=3):
+```
+a^b(a,b)
+4
+3
+64.000000⏎ 
+```
+out(a=5,b=-3):
+```
+a^b(a,b)
+5
+-3
+0.008000⏎
+```
