@@ -1,9 +1,11 @@
 // C-calc v1.2 Chamran University
 #include <stdio.h>
-// #include <string.h>
-// #include ".\am1nsab83.h"
 double a;
 void squreroot();
+void sine();
+void cosn();
+double powerofq(double, int);
+double factorofq();
 void operate();
 void avg();
 void power();
@@ -50,7 +52,7 @@ void operate()
     case 'a':
         avg();
         break;
-    case 'c':
+    case 'z':
         a = 0;
         main();
         break;
@@ -58,14 +60,15 @@ void operate()
         return;
         break;
     case 'h':
-        printf("help page:\n1:\'e\':exit\n2:\'c\':for reseting the number\n3:\'h\':this page\n4:\'r\':its for squreroot\n5:\'a\':for average calculation.\n");
+        printf("help page:\n1.\'e\':exit\n2.\'z\':for reseting the number\n3.\'h\':this page\n4.\'r\':its for squreroot\n5.\'a\':for average calculation.\n6:\'s\':sin.\n7.\'c\':cos");
         operate();
         break;
-        // just ignore this part, do not ignore if anything got "esclated"
-        // case 'm':
-        // char *pass;
-        // scanf("%s",pass);
-        // hidden_mwssage(pass);
+    case 's':
+        sine();
+        break;
+    case 'c':
+        cosn();
+        break;
     }
 }
 void plus()
@@ -166,4 +169,66 @@ void avg()
     s = s / n;
     printf("avg of your numbers is %f\n", s);
     main();
+}
+void sine() 
+{
+    int inta=a;
+    int deg = inta%360;
+    double rad = deg * 3.14/180;
+    int i,f;
+    a=0;
+    for(i = 0,f=1; i < 100/*,f<=1*/; i++) 
+    {
+        a= a + powerofq(-1, i) * powerofq(rad, 2*i+1) / factorofq( 2*i+1 );
+    }
+    printf("%lf",a);
+    operate();
+}
+void cosn() 
+{
+    int inta=a,deg=inta%360;
+    double rad = deg * 3.14 / 180;
+    int i;
+    a=0;
+    for(i = 0; i < 100; i++) 
+    {
+        if(factorofq(2*i)==0)
+            a = a + powerofq(-1, i) * powerofq(rad, 2 * i) / 1;
+        else
+            a = a + powerofq(-1, i) * powerofq(rad, 2 * i) / factorofq(2 * i);
+    }
+    printf("%lf",a);
+    operate();
+}
+double factorofq(int b)
+{
+    float s = 1;
+    int i;
+    for (i = 1; i <= b; i++)
+        s = s * i;
+    return b;
+}
+double powerofq(double ap, int b)
+{
+    int i;
+    const double staticap = ap;
+    if (b == 0)
+    {
+        ap = 1;
+        return ap;
+    }
+    if (b < 0)
+    {
+        b = b * -1;
+        for (i = 1; i < b; i++)
+            ap = ap * staticap;
+        ap = 1 / ap;
+        return ap;
+    }
+    if (b > 0)
+    {
+        for (i = 1; i < b; i++)
+            ap = ap * staticap;
+        return ap;
+    }
 }
