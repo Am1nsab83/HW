@@ -174,7 +174,7 @@ void sine()
 {
     int inta=a;
     int deg = inta%360;
-    double rad = deg * 3.14/180;
+    double rad = deg * 3.1415926535897/180;
     int i,f;
     a=0;
     for(i = 0,f=1; i < 100/*,f<=1*/; i++) 
@@ -187,26 +187,22 @@ void sine()
 void cosn() 
 {
     int inta=a,deg=inta%360;
-    double rad = deg * 3.14 / 180;
+    double rad = deg * 3.1415926535897 / 180;
     int i;
     a=0;
     for(i = 0; i < 100; i++) 
     {
-        if(factorofq(2*i)==0)
-            a = a + powerofq(-1, i) * powerofq(rad, 2 * i) / 1;
-        else
-            a = a + powerofq(-1, i) * powerofq(rad, 2 * i) / factorofq(2 * i);
+        a = a + powerofq(-1, i) * powerofq(rad, 2 * i) / factorofq(2 * i);
     }
     printf("%lf",a);
     operate();
 }
 double factorofq(int b)
 {
-    float s = 1;
-    int i;
-    for (i = 1; i <= b; i++)
-        s = s * i;
-    return b;
+   if (b == 0)  
+    return 1;  
+  else  
+    return(b * factorofq(b-1));  
 }
 double powerofq(double ap, int b)
 {
