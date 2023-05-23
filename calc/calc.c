@@ -177,7 +177,7 @@ void sine()
     double rad = deg * 3.1415926535897/180;
     int i,f;
     a=0;
-    for(i = 0,f=1; i < 100/*,f<=1*/; i++) 
+    for(i = 0; i < 100; i++) 
     {
         a= a + powerofq(-1, i) * powerofq(rad, 2*i+1) / factorofq( 2*i+1 );
     }
