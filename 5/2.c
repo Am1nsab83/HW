@@ -10,7 +10,7 @@ int main()
     int st[stnum];
     reg(st,stnum);
     mor(st,stnum);
-
+    out(st,stnum);
 }
 void reg(int* *st,int stnum)
 {
@@ -23,19 +23,22 @@ void reg(int* *st,int stnum)
 }
 void mor(int *st, int stnum)
 {
-    int i,stmax=st[0];
-    for(i=0;i<stnum;i++)
-    {
-        if(st[i]>stmax)
-        {
-            stmax=st[i];
-            st[i]=0;
-            out(stmax);
-            mor(st,stnum);
-        }
-    }
+    int temp, i, j, k;
+   for (j = 0; j < stnum; ++j)
+   {
+      for (k = j + 1; k < stnum; ++k)
+      {
+         if (st[j] < st[k])
+         {
+            temp = st[j];
+            st[j] = st[k];
+            st[k] = temp;
+         }
+      }
+   }
 }
-void out(int out)
+void out(int *n,int stnum)
 {
-    printf("%d\n",out);
+    for(int i=0;i<stnum;i++)
+        printf("\n%d\n",n[i]);
 }
