@@ -233,5 +233,108 @@ reason:
 
 در مثال های قبل دیدیم که پرینت اف ایکسی که با آن در یک کروشه باشد را میبیند و اگر ایکس موجود باید ولی در کروشه‌ی دیگری باشد، آن را نادیدیه میگیرد، حال ایکس درون یک کروشه دیگر است و ولی ایکس گلوبال تعریف شده است، پس پرینت اف ایکسی را درون مین نمیخواند، ولی یک ایکس گلوبال موجود است که میتواند آن را بخواند، پس آن را خوانده و به خروجی کیبرد.
 
+---
+4
+---
+with function inside:(4a.c)
+```
+#include <stdio.h>
+int c12(int num)
+{
+    int f1 = 0;
+    int f2 = 0;
+    while (num > 0)
+    {
+        int dig = num % 10;
+        if (dig == 1)
+        {
+            f1 = 1;
+        } 
+        else if (dig == 2)
+        {
+            f2 = 1;
+        }
+        if (f1 && f2)
+        {
+            return 1;
+        }
+        num /= 10;
+    }
+    return 0;
+}
+int main()
+{
+    int num;
+    printf("Enter a number:\n");
+    scanf("%d", &num);
+    int mult = num;
+    while (!c12(mult))
+        mult += num;
+    printf("%d",mult);
+    return 0;
+}
+```
+
+header of the function:(4a.h)
+```
+#include <stdio.h>
+int c12(int num)
+{
+    int f1 = 0;
+    int f2 = 0;
+    while (num > 0)
+    {
+        int dig = num % 10;
+        if (dig == 1)
+        {
+            f1 = 1;
+        } 
+        else if (dig == 2)
+        {
+            f2 = 1;
+        }
+        if (f1 && f2)
+        {
+            return 1;
+        }
+        num /= 10;
+    }
+    return 0;
+}
+```
+
+code with header function: (4b.c)
+```
+#include <stdio.h>
+#include "./4a.h"
+int main()
+{
+    int num;
+    printf("Enter a number:\n");
+    scanf("%d", &num);
+    int mult = num;
+    while (!c12(mult))
+        mult += num;
+    printf("%d",mult);
+    return 0;
+}
+```
+out(67):
+```
+Enter a number:
+67
+201⏎
+```
+out(157):
+```
+Enter a number:
+157
+1256⏎  
+```
+
+----
+
+
+
 # [لینک به سایت](https://am1nsab83.github.io/4ext)
 # [گیتهاب](https://github.com/Am1nsab83/HW)
