@@ -14,6 +14,7 @@ int main()
     num2=stn(str2);
     sum = plus(num1,num2);
     printf("\n%llu",sum);
+    return 0;
 }
 void read(char* *str)
 {
