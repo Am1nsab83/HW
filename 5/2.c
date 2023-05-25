@@ -1,18 +1,21 @@
 #include <stdio.h>
-void reg();
-void out();
-void mor();
-int stnum;
+#include <stdlib.h>
+void reg(int* st,int stnum);
+void out(int *n,int stnum);
+void mor(int *st, int stnum);
+
 int main()
 {
+    int stnum;
     printf("please enter the number of students\n:");
     scanf("%d",&stnum);
-    int st[stnum];
+    int *st = malloc(stnum * sizeof(int));
     reg(st,stnum);
     mor(st,stnum);
     out(st,stnum);
+    free(st);
 }
-void reg(int* *st,int stnum)
+void reg(int* st,int stnum)
 {
     int i;
     for(i=0;i<stnum;i++)

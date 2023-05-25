@@ -10,9 +10,7 @@ int main()
     for(i=0;i<size;i++)
         scanf(" %c",&a[i]);
     del(a);
-    printf (" \n Array elements after deletion of the duplicate elements: ");  
-      
-    // for loop to print the array  
+    printf (" \n duplicateds are deleted: ");    
     for ( i = 0; i < size; i++)  
     {  
         printf ("\n %c \n", a[i]);  
