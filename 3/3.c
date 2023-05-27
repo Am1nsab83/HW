@@ -1,12 +1,13 @@
 #include <stdio.h>
+int main()
 {
-    int i,j;
-    const char ch='*';
+    int i, j;
+    const char ch = '*';
     printf("you know whats gonna happen ;)\n\n ");
-    for(i=1;i<=6;i++)
+    for (i = 1; i <= 6; i++)
     {
-        for(j=1;j<=i;j++)
-            printf("%c",ch);
+        for (j = 1; j <= i; j++)
+            printf("%c", ch);
         printf("\n");
     }
     return 0;

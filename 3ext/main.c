@@ -28,10 +28,10 @@ int main()
             done2 = 0;
             break;
         case '2':
-            printf("so, Im an offline program, but anyways. do you wanna see it in Mb or MB?:\n1.Mb\n2.MB\n3.back( pick me, please )\n");
-            scanf(" %c", &ch2);
             do
             {
+                printf("so, Im an offline program, but anyways. do you wanna see it in Mb or MB?:\n1.Mb\n2.MB\n3.back( pick me, please )\n");
+                scanf(" %c", &ch2);
                 switch (ch2)
                 {
                 case '3':
@@ -45,10 +45,10 @@ int main()
             } while (done2 != 1);
             break;
         case '3':;
-            printf("select one:\n1.1MB: 1M Rials\n2.1GB: 1B Rials\n3. back ( pick me, please )\n");
-            scanf(" %c", &ch2);
             do
             {
+                printf("select one:\n1.1MB: 1M Rials\n2.1GB: 1B Rials\n3. back ( pick me, please )\n");
+                scanf(" %c", &ch2);
                 switch (ch2)
                 {
                 case '3':
@@ -60,12 +60,13 @@ int main()
                     break;
                 }
             } while (done2 != 1);
+            done2 =0;
             break;
         case '4':
-            printf("select one ( who uses voice calling in 2023 anyways? )\n1.1H: 9000 Rials\n2.24H: 21000 Rials\n3.back ( pick me, please )\n");
-            scanf(" %c", &ch2);
             do
             {
+                printf("select one ( who uses voice calling in 2023 anyways? )\n1.1H: 9000 Rials\n2.24H: 21000 Rials\n3.back ( pick me, please )\n");
+                scanf(" %c", &ch2);
                 switch (ch2)
                 {
                 case '3':
@@ -77,6 +78,7 @@ int main()
                     break;
                 }
             } while (done2 != 1);
+            done2=0;
             break;
         case '5':
             done = 1;
