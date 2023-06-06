@@ -6,9 +6,7 @@ int main()
     printf("Enter the first letter of a color: ");
     scanf("%c", &color);
     if (color >= 'a' && color <= 'z')
-    {
         color = color - 'a' + 'A';
-    }
     switch (color)
     {
     case 'R':
